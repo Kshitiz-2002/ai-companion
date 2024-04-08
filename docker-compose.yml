@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: mydatabase
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  # api:
+  #   build: ./path/to/your/api  # Path to your API Dockerfile
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - mysql
+volumes:
+  mysql_data:
