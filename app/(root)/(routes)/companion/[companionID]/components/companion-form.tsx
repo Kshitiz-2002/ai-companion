@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
-import ImageUpload from "@/components/image-upload";
+import { ImageUpload } from "@/components/image-upload";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
@@ -101,8 +101,8 @@ const CompanionForm = ({ categories, initialData }: CompanionFormProps) => {
 
     const handleButtonClick = () => {
         console.log("Button Clicked");
-        const values = form.getValues(); 
-        onSubmit(values); 
+        const values = form.getValues();
+        onSubmit(values);
     }
 
     return (
@@ -126,7 +126,7 @@ const CompanionForm = ({ categories, initialData }: CompanionFormProps) => {
                         render={({ field }) => (
                             <FormItem className="flex flex-col items-center justify-center space-y-4">
                                 <FormControl>
-                                    <ImageUpload disabled={isLoading} onChange={field.onChange} value={field.value} />
+                                    <ImageUpload disabled={isLoading} onChange={field.onChange} value={field.value} src={""} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -269,7 +269,7 @@ const CompanionForm = ({ categories, initialData }: CompanionFormProps) => {
                         )}
                     />
                     <div className="flex justify-center w-full">
-                        <Button type="submit" size="lg" disabled={isLoading} onClick={handleButtonClick}> {/* Set type to "submit" */}
+                        <Button type="submit" size="lg" disabled={isLoading} onClick={handleButtonClick}>
                             {initialData ? 'Edit your companion' : 'Create your companion'}
                             <Wand2 className="w-4 h-4 ml-2" />
                         </Button>
