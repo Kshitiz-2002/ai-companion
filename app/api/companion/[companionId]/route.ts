@@ -3,7 +3,7 @@ import { checkSubscription } from "@/lib/subscription";
 import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-export async function PAT(
+export async function PATCH(
   req: Request,
   { params }: { params: { companionId: string } }
 ) {
